@@ -60,4 +60,25 @@ let benda = ["buku","pensil","penghapus"]
 benda.splice(0,1,"pulpen")
 console.log(benda)
 
+//5
+let belanja = ["sayur","daging","ayam"]
+belanja.pop()
+belanja.push("buah")
+console.log(belanja)
+
+let peliharaan = ["kucing","anjg","kura2"]
+peliharaan.unshift("ular")
+peliharaan.splice(1,1,"kuda")
+console.table(peliharaan)
+
+let nomor = [1,2,3,4,5]
+nomor.unshift(10)
+nomor.pop()
+console.table(nomor.length)
+
+
+
+
+
+
 
