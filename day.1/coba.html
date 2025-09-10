@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CRUD User System</title>
+</head>
+<body>
+    <h1>tugas CRUD</h1>
+    
+    <!-- Buttons for operations -->
+    <button id="registerBtn">registrasi</button>
+    <button id="loginBtn">login</button>
+    <button id="showUsersBtn">users</button>
+    <button id="updateBtn">pembaruan user</button>
+    <button id="deleteBtn">hapus user</button>
+
+    <!-- Hidden forms that will be shown in popups -->
+    <div id="registerForm" style="display: none;">
+        <h2>silahkan registrasi</h2>
+        <label for="regUsername">Username:</label>
+        <input type="text" id="regUsername" required><br>
+        <label for="regPassword">Password:</label>
+        <input type="password" id="regPassword" required><br>
+        <button onclick="registerUser()">Register</button>
+    </div>
+
+    <div id="loginForm" style="display: none;">
+        <h2>Login</h2>
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" required><br>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required><br>
+        <button onclick="loginUser()">Login</button>
+    </div>
+
+    <div id="updateForm" style="display: none;">
+        <h2>Update User Password</h2>
+        <label for="updateUsername">Enter Username:</label>
+        <input type="text" id="updateUsername" required><br>
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" required><br>
+        <button onclick="updateUser()">Update</button>
+    </div>
+
+    <div id="deleteForm" style="display: none;">
+        <h2>Delete User</h2>
+        <label for="deleteUsername">Enter Username:</label>
+        <input type="text" id="deleteUsername" required><br>
+        <button onclick="deleteUser()">Delete</button>
+    </div>
+
+    <!-- Output area for messages -->
+    <p id="output"></p>
+
+    <script>
+        // Arrays to store users and passwords
+        let usernames = [];
+        let passwords = [];
+
+        // Function to show a form (popup-like by toggling display)
+        function showForm(formId) {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('updateForm').style.display = 'none';
+            document.getElementById('deleteForm').style.display = 'none';
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        // Event listeners for buttons
+        document.getElementById('registerBtn').addEventListener('click', () => showForm('registerForm'));
+        document.getElementById('loginBtn').addEventListener('click', () => showForm('loginForm'));
+        document.getElementById('showUsersBtn').addEventListener('click', showAllUsers);
+        document.getElementById('updateBtn').addEventListener('click', () => showForm('updateForm'));
+        document.getElementById('deleteBtn').addEventListener('click', () => showForm('deleteForm'));
+
+        // Function to register a new user
+        function registerUser() {
+            const username = document.getElementById('regUsername').value.trim();
+            const password = document.getElementById('regPassword').value.trim();
+            if (!username || !password) {
+                document.getElementById('output').textContent = 'Please enter both username and password.';
+                return;
+            }
+            const index = usernames.indexOf(username);
+            if (index !== -1) {
+                document.getElementById('output').textContent = 'Username already exists. Try a different one.';
+                return;
+            }
+            usernames.push(username);
+            passwords.push(password);
+            document.getElementById('output').textContent = 'User registered successfully!';
+            document.getElementById('regUsername').value = '';
+            document.getElementById('regPassword').value = '';
+        }
+
+        // Function to login a user
+        function loginUser() {
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            if (!username || !password) {
+                document.getElementById('output').textContent = 'Please enter both username and password.';
+                return;
+            }
+            const index = usernames.indexOf(username);
+            if (index === -1) {
+                document.getElementById('output').textContent = 'Username not found.';
+                return;
+            }
+            if (passwords[index] !== password) {
+                document.getElementById('output').textContent = 'Incorrect password.';
+                return;
+            }
+            document.getElementById('output').textContent = 'Login successful!';
+            document.getElementById('loginUsername').value = '';
+            document.getElementById('loginPassword').value = '';
+        }
+
+        // Function to show all users
+        function showAllUsers() {
+            if (usernames.length === 0) {
+                document.getElementById('output').textContent = 'No users registered yet.';
+                console.log('No users');
+                return;
+            }
+            let userList = 'Registered Users:\n';
+            for (let i = 0; i < usernames.length; i++) {
+                userList += `Username: ${usernames[i]}, Password: ${passwords[i]}\n`;
+            }
+            alert(userList); // Menggunakan alert() sebagai popup
+            console.log(userList);
+            document.getElementById('output').textContent = 'Check the alert popup for user list.';
+        }
+
+        // Function to update a user's password
+        function updateUser() {
+            const username = document.getElementById('updateUsername').value.trim();
+            const newPassword = document.getElementById('newPassword').value.trim();
+            if (!username || !newPassword) {
+                document.getElementById('output').textContent = 'Please enter username and new password.';
+                return;
+            }
+            const index = usernames.indexOf(username);
+            if (index === -1) {
+                document.getElementById('output').textContent = 'Username not found.';
+                return;
+            }
+            passwords[index] = newPassword;
+            document.getElementById('output').textContent = 'Password updated successfully!';
+            document.getElementById('updateUsername').value = '';
+            document.getElementById('newPassword').value = '';
+        }
+
+        // Function to delete a user
+        function deleteUser() {
+            const username = document.getElementById('deleteUsername').value.trim();
+            if (!username) {
+                document.getElementById('output').textContent = 'Please enter a username.';
+                return;
+            }
+            const index = usernames.indexOf(username);
+            if (index === -1) {
+                document.getElementById('output').textContent = 'Username not found.';
+                return;
+            }
+            usernames.splice(index, 1);
+            passwords.splice(index, 1);
+            document.getElementById('output').textContent = 'User deleted successfully!';
+            document.getElementById('deleteUsername').value = '';
+        }
+    </script>
+</body>
+</html>
+
