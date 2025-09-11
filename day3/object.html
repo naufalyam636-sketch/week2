@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1
+      let mobil = {
+        merk: "toyota",
+        warna: "merah",
+      };
+      console.log(mobil.merk)
+      console.log(mobil.warna)
+
+      let siswa = {
+        nama: "ryan",
+        kelas: "TK"
+      }
+      console.log(siswa.nama)
+
+      let hewan = {
+        kucing: "peliharaan",
+        umur: "empat tahun"
+      }
+      console.log(hewan.kucing)
+
+      let object ={
+        user: "yamin",
+        password:"123"
+      }
+      console.log(object.user)
+
+      //2
+      mobil.harga =1000000000
+      console.log(mobil.harga)
+
+      siswa.alamat = "padang"
+      console.log(siswa.alamat)
+
+      hewan.makanan = "tulang"
+      console.log(hewan.makanan)
+
+      object.email = "yamin@gmail.com"
+      console.log(object.email)
+
+      //3
+      mobil.warna ="hitam"
+      console.log(mobil)
+
+      siswa.kelas = "6"
+      console.log(siswa)
+
+      hewan.umur = (5)
+      console.log(hewan)
+
+      object.password = ("rahasia123")
+      console.log(object)
+
+      //4
+
+      delete mobil.harga
+      console.log(mobil)
+
+      delete siswa.alamat
+      console.log(siswa)
+
+      delete hewan.makanan
+      console.log(hewan)
+
+      delete object.email
+      console.log(object)
+
+      //5
+
+      for(let key in mobil){
+        console.log(key + ": " + mobil[key]);
+      }
+
+      for(let key in siswa){
+        console.log(key + ": " + siswa[key])
+      }
+
+      for(let key in hewan){
+        console.log(key + ": " + siswa[key])
+      }
+
+      for(let key in object){
+        console.log(key + ":" + object[key])
+      }
+
+      //6
+
+      let buku = {
+        judul:"senja",
+        pengarang:"baja",
+        tahunTerbit:"2015"
+      }
+
+      buku.penerbit = "pustaka buku"
+
+      delete buku.pengarang
+
+      for(let key in buku){
+        console.log(key + ":" + buku[key])
+      }
+
+      //7
+
+      
+    </script>
+  </body>
+</html>

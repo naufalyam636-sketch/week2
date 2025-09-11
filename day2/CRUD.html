@@ -46,9 +46,9 @@
       let index = usernames.indexOf(username);
 
       if (index !== -1 && passwords[index] === password) {
-        alert("Login berhasil! Selamat datang, " + username);
+        alert("login berhasil! selamat datang, " + username);
       } else {
-        alert("Username atau password salah!");
+        alert("username atau password salah!");
       }
     }
 
@@ -57,9 +57,9 @@
    
     function tampilkanUser() {
       if (usernames.length === 0) {
-        alert("Belum ada user yang terdaftar.");
+        alert("belum ada yg daftar");
       } else {
-        let data = "Daftar User:\n";
+        let data = "daftar User:\n";
         for (let i = 0; i < usernames.length; i++) {
           data += (i+1) + ". " + usernames[i] + "\n";
         }
@@ -71,15 +71,15 @@
     // pembaruan
     
     function updateUser() {
-      let username = prompt("Masukkan username yang ingin diupdate:");
+      let username = prompt("masukkan username yg mau di perbarui:");
       let index = usernames.indexOf(username);
 
       if (index !== -1) {
-        let newPassword = prompt("Masukkan password baru:");
+        let newPassword = prompt("masukkan password baru:");
         passwords[index] = newPassword; // ganti password lama dengan yang baru
         alert("Password user " + username + " berhasil diupdate!");
       } else {
-        alert("User tidak ditemukan!");
+        alert("user tidak ada!");
       }
     }
 
@@ -87,7 +87,7 @@
     // hapus
   
     function deleteUser() {
-      let username = prompt("Masukkan username yang ingin dihapus:");
+      let username = prompt("masukkan username yg mau di hapus:");
       let index = usernames.indexOf(username);
 
       if (index !== -1) {
@@ -96,7 +96,7 @@
         passwords.splice(index, 1);
         alert("User " + username + " berhasil dihapus!");
       } else {
-        alert("User tidak ditemukan!");
+        alert("user tidak ditemukan!");
       }
     }
   </script>
