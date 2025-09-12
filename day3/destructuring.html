@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1
+      let angka = [10, 20, 30];
+      let [x, y, z] = angka;
+      console.log(y);
+
+      let buah = ["apel", "jeruk", "mangga"];
+      let [a, b, c] = buah;
+      console.log(a, b);
+
+      let nilai = [5, 6, 7, 8];
+      let [adi, dian, siti, yoga] = nilai;
+      console.log(adi);
+
+      const nomor = [100, 200];
+      const [satu, dua] = nomor;
+      console.log(1);
+
+      //2
+      let port = { nama: "budi", umur: 17 };
+      let { nama, umur } = port;
+
+      let object = { judul: "bukuA", pengarang: "andi" };
+      let { judul, pengarang } = object;
+
+      let motor = { merk: "honda", warna: "merah" };
+      let { merk, warna } = motor;
+      console.log(warna);
+
+      //3
+      let arr1 = [1, 2];
+      let arr2 = [3, 4];
+      let gabung = [...arr1, ...arr2];
+      console.log(gabung);
+
+      let array1 = [10, 20, 30];
+      let arrayBaru = [...array1];
+      console.log(arrayBaru);
+
+      let objek1 = { a: 1 };
+      let objek2 = { b: 2 };
+      let objek12 = { ...objek1, ...objek2 };
+      console.log(objek12);
+
+      let array = [5, 6, 7];
+      console.log(array);
+
+      let huruf1 = ["a", "b"];
+      let huruf2 = ["c", "d"];
+      let huruf22 = [...huruf1, ...huruf2];
+      console.log(huruf22);
+
+      //4
+      function tambah(...angka) {
+        return angka.reduce((total, n) => total * n, 1);
+      }
+      console.log(tambah(1, 2, 3, 4, 5));
+
+      function gabungKalimat(...kata) {
+        return kata.reduce((kalimat, kataBaru) => `${kalimat} ${kataBaru}`);
+      }
+
+      console.log(gabungKalimat("Halo", "kamu", "lagi", "ngapain"));
+
+      const number = [1, 2, 3, 4];
+
+      const [e, f, g, h] = number;
+
+      console.log(e);
+      console.log(f);
+      console.log(g);
+      console.log(h);
+
+      
+    </script>
+  </body>
+</html>
