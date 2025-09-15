@@ -11,14 +11,19 @@ let genap = angka.filter(function (n) {
 console.log(genap);
 
 //4
-let jumlah = angka.reduce(function(total,x){
-    return total + x
-})
-console.log(jumlah)
+let jumlah = angka.reduce(function (total, x) {
+  return total + x;
+});
+console.log(jumlah);
 
 //5
-let nyari = angka.find(function(z){
-    return z > 8
-})
-console.log(nyari)
+let nyari = angka.find(function (z) {
+  return z > 8;
+});
+console.log(nyari);
 
+let nama = ["Ali", "Budi", "Cici","yamin"];
+
+nama.forEach(function (item, n) {
+  console.log("Halo " + item + " — posisi " + n);
+});

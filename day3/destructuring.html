@@ -70,16 +70,22 @@
 
       console.log(gabungKalimat("Halo", "kamu", "lagi", "ngapain"));
 
-      const number = [1, 2, 3, 4];
+      let [awal, ...sisa] = [1, 2, 3, 4, 5];
+      console.log(awal);
+      console.log(sisa);
 
-      const [e, f, g, h] = number;
+      const dataSiswa = { nama: "Dewi", umur: 16, kelas: "XI" };
+      const { name, kelas } = dataSiswa;
+      const dataLengkap = { ...dataSiswa, hobi: "Membaca" };
 
-      console.log(e);
-      console.log(f);
-      console.log(g);
-      console.log(h);
+      function hitungTotal(...nilai) {
+        return nilai.reduce((total, n) => total + n, 0);
+      }
 
-      
+      console.log("Nama:", name);
+      console.log("Kelas:", kelas);
+      console.log("Data Lengkap:", dataLengkap);
+      console.log("Total Nilai Ujian:", hitungTotal(80, 85, 90, 75));
     </script>
   </body>
 </html>
